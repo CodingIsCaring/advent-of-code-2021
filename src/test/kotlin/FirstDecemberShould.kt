@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class FirstDecemberShould {
+
     @Test
-    fun testFixed() {
-        val file = IntArray(1){2}
-        assertEquals(2, FirstDecember.findIncreasingDepth(file))
+    fun `find increasing depths in file`() {
+        assertEquals(1288, FirstDecember.findIncreasingDepth("src/main/resources/scannedDepth.txt"))
     }
 
 }
