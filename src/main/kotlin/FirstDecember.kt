@@ -15,6 +15,26 @@ class FirstDecember {
             }
             return totalIncreased;
         }
+
+        fun findIncreasingDepthWithWindow(fileName: String): Int {
+            var totalIncreased = 0
+            val lines: List<String> = File(fileName).readLines()
+            for ((index, currentSample) in lines.withIndex()) {
+                val isSlidingWindow = index + 4 <= lines.size
+                if (isSlidingWindow) {
+                    val secondSample = lines[index + 1].toInt()
+                    val thirdSample = lines[index + 2].toInt()
+                    val fourthSample = lines[index + 3].toInt()
+                    val firstDepth = currentSample.toInt() + secondSample + thirdSample
+                    val secondDepth = secondSample + thirdSample + fourthSample
+
+                    if (firstDepth < secondDepth) {
+                        totalIncreased++
+                    }
+                }
+            }
+            return totalIncreased;
+        }
     }
 
 }
